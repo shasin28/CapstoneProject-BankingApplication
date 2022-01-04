@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Employee Insertion</title>
+</head>
+<body>
+<br><br>
+<h1 style="color:red;">Online Banking System</h1>
+<br><br>
+<nav class="navMenu1">
+<a href="./insertEmployeePage"> Insert Employee</a>
+<a href="./showEmployeePage"> Show Employee </a>
+<a href="./showUserPage"> Show User</a>
+<a href="./logoutAdmin" > Log out</a>
+<div class="dot"></div>
+</nav>
+<br><br><br><br>
+<div class="container">
+<form action="./insertEmp" method="post" th:object="${command}">
+
+	<input type="text"  class="effect-17" th:field="*{id}" placeholder="Enter employee Id"/><br><br>
+	<input type="text" class="effect-17"  th:field="*{name}" placeholder="Enter employee Name"/><br><br>
+	<input type="password" class="effect-17" th:field="*{password}" placeholder="Enter employee password"/><br><br>
+	<input type="submit" value="Insert">
+
+</form>
+<h4 th:text="${msg}"></h4>
+</div>
+</body>
+</html>

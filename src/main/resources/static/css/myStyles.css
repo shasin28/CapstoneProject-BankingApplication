@@ -1,0 +1,187 @@
+@charset "ISO-8859-1";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+	text-align:center;
+  background-image: url("https://www.ledgerinsights.com/wp-content/uploads/2020/05/digital-currency-810x524.jpg");
+  font-family: "Montserrat", sans-serif;
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+.navMenu1 {
+  position: absolute;
+  top: 17%;
+  left: 40%;
+  -webkit-transform: translate(-35%, -65%);
+  transform: translate(-35%, -65%);
+}
+
+.navMenu1 a {
+  color: #f6f4e6;
+  text-decoration: none;
+  
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+  font-weight:bold;
+  width: 150px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu1 a:hover {
+  color: red;
+  font-weight:bold;
+}
+
+
+.navMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 1000;
+  font-weight:bold;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: red;
+  font-weight:bold;
+}
+
+.navMenu .dot {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=password] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+
+	 margin: auto;
+	width:50%;
+	text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.container1 {
+	 margin: auto;
+	width:80%;
+	text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#table1 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+   margin-left: auto; 
+  margin-right: auto;
+   
+}
+
+#table1 td, #table1 th {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+
+#table1 tr:nth-child(even){background-color: #bdd1b8;}
+
+#table1 tr:hover {background-color: #80b476;}
+
+#table1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+

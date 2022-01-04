@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Payment</title>
+</head>
+<body>
+<br><br>
+<h1  style="color:red;">Online Banking System...</h1>
+<nav class="navMenu1">
+<a href="./getTransactions">Transactions</a>
+<a href="./addBalance">Add Balance</a>
+<a href="./byCard">Pay By Card</a>
+<a href="./byUpi">Pay By UPI</a>
+<a href="./showDetails">Show Details</a>
+<a href ="./logout" >Logout</a>
+<div class="dot"></div>
+</nav>
+<br><br><br><br>
+<div th:unless="${#lists.isEmpty(user)}" class="container">
+<form action="./Paymentform" method="post" th:object="${command}">
+<input type="hidden" name="mode" th:value="${mode}">
+<input type="text" name="balance" placeholder="Enter Amount.."><br><br>
+<input type="text" name="accountNumber" placeholder="Destination Account Number.."><br><br>
+<a href="./goBack"style="color:black;">Cancel Payment</a>
+<input type="submit" value="Pay">
+</form>
+
+<div th:if="${msg==-1}" class="container">
+<h2>Not sufficient funds found</h2>
+</div>
+<div th:if="${msg==-2}" class="container">
+<h2>Account number not found</h2>
+</div>
+<div th:if="${msg==-3}" class="container">
+<h2>Some error occured!</h2>
+</div>
+<div th:if="${msg==-4}" class="container">
+<h2>Self payment is not allowed..</h2>
+</div>
+<div th:if="${msg==-5}" class="container">
+<h2>Entered amount is not valid..</h2>
+</div>
+</div>
+
+</body>
+</html>

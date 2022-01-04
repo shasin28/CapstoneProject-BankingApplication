@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Insert user</title>
+</head>
+<body>
+<br><br>
+<h1  style="color:red;">Online Banking System</h1>
+<br><br>
+<nav class="navMenu1">
+<a href="./showUsers">Display Users</a>
+<a href="./insertUsers">Add Users</a>
+<a href="./logoutEmp" >Log out</a>
+<div class="dot"></div>
+</nav>
+<br><br><br><br>
+<h2>Create User</h2>
+<div class="container">
+<form action="./createUser" method="post" th:object="${command}">
+<input type="text" name="userId" placeholder="Enter User ID"><br><br>
+<input type="password" name="password" placeholder="Enter user password"><br><br>
+
+<input type="submit" value="Create">
+</form>
+</div>
+<div th:unless="${#lists.isEmpty(msg)}" class ="container">
+<div th:if="${msg==1}">
+<h3> User is created successfully!</h3>
+</div>
+<div th:if="${msg==-1}">
+<h3> User with this Id already exists!</h3>
+</div>
+<div th:if="${msg==-2}">
+<h3> user creation failed!!</h3>
+</div>
+</div>
+</body>
+</html>

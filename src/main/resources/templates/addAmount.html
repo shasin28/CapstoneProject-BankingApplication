@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Add Amount</title>
+</head>
+<body>
+<br><br>
+<h1  style="color:red;">Online Banking System</h1>
+<br><br>
+<nav class="navMenu1">
+<a href="./getTransactions">Transactions</a>
+<a href="./addBalance">Add Balance</a>
+<a href="./byCard">Pay By Card</a>
+<a href="./byUpi">Pay By UPI</a>
+<a href="./showDetails">Show Details</a>
+<a href ="./logout">Logout</a>
+<div class="dot"></div>
+
+</nav>
+<br><br>
+<div th:unless="${#lists.isEmpty(user)}"class ="container">
+<form action="./amount" method="post">
+<input type="text" name="balance" placeholder="Enter Amount.."><br><br>
+<a href="./goBack">Cancel</a>
+<input type="submit" value="Add">
+</form>
+</div>
+<div th:unless="${#lists.isEmpty(amount)}"class ="container">
+<div th:if="${amount==-1}">
+<h2>Not Added</h2>
+</div>
+<div th:if="${amount==1}">
+<h2>Added successfully</h2>
+</div>
+<div th:if="${amount==-2}">
+<h2>Enter the positive number</h2>
+</div>
+</div>
+</body>
+</html>

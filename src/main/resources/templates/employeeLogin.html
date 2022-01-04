@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Employee Login</title>
+</head>
+<body>
+<br><br>
+<h1  style="color:red;">Online Banking System...</h1>
+<br><br>
+<div th:unless="${#lists.isEmpty(employee)}">
+<h2>Employee is already logged in </h2>
+<form action="./login" method="post">
+	<h2><input type="submit" value="Click here" class="button"></h2>
+</form>
+</div>
+<div th:if="${#lists.isEmpty(employee)}" class ="container">
+<form action="./employeeCheck" method="post">
+<input type="text" class="effect-17" name="id" placeholder="Enter employee Id.."><br><br>
+<input type="password"  class="effect-17" name="password" placeholder="Enter password.."><br><br>
+<input type="submit" value="Login">
+</form>
+</div>
+<div th:unless="${#lists.isEmpty(msg)}">
+<div th:if="${msg==-1}">
+<h3 id="ongoing">employee Not Found!</h3>
+</div>
+</div>
+</body>
+</html>

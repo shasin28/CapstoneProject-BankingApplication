@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Employee Page</title>
+</head>
+<body>
+<br><br>
+<h1 style="color:red;">Online Banking System...</h1>
+<nav class="navMenu1">
+<a href="./showUsers">Display Users</a>
+<a href="./insertUsers">Add Users</a>
+<a href="./logoutEmp" >Log out</a>
+<div class="dot"></div>
+</nav>
+<br><br><br><br>
+<div th:unless="${#lists.isEmpty(users)}" class ="container">
+<div th:if="${users==1}">
+<h3>No Users</h3>
+</div>
+<div th:if="${users!=1}">
+<h3>Users are</h3><br>
+<table border="1" id ="table1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>password</th>
+			<th>Account Id</th>
+				
+		</tr>
+			<tr th:each="users:${users}">
+				<td th:text="${users.userId}"></td>
+				<td th:text="${users.name}"></td>
+				<td th:text="${users.password}"></td>
+				<td th:text="${users.account}"></td>
+			</tr>
+	</table>
+	</div>
+	</div>
+</body>
+</html>

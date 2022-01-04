@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>UserPage</title>
+</head>
+<body>
+<br><br>
+<h1 style="color:red;">Online Banking System...</h1>
+<nav class="navMenu1">
+<a href="./getTransactions">Transactions</a>
+<a href="./addBalance">Add Balance</a>
+<a href="./byCard">Pay By Card</a>
+<a href="./byUpi">Pay By UPI</a>
+<a href="./showDetails">Show Details</a>
+<a href ="./logout" >Logout</a>
+<div class="dot"></div>
+
+</nav>
+<br><br><br><br>
+<div th:unless="${#lists.isEmpty(transactions)}" class="container1">
+<div th:if="${transactions==1}">
+<h3>No transactions</h3>
+</div>
+<div th:if="${transactions!=1}">
+<h3>Transactions are</h3><br>
+<table border="1" id ="table1">
+		<tr>
+		<th>Transaction Id</th>
+			<th>Transaction Date</th>
+			<th>Transaction Amount</th>
+			<th>Payment Mode</th>
+			<th>Sent By (Account No.)</th>
+			<th>Received By (Account No.)</th>
+		</tr>
+
+<tr th:each="transaction : ${transactions}">
+				<td th:text="${ transaction.id}"></td>
+				<td th:text="${ transaction.date}"></td>
+				<td th:text="${ transaction.amount}"></td>
+				<td th:text="${ transaction.mode}"></td>
+				<div th:if="${transaction.source.accountNumber==user.account.accountNumber}">
+				
+				<td th:text="${ transaction.source.accountNumber}" style="color:red;font-weight: bold;"></td>
+				</div>
+				<div th:if="${transaction.source.accountNumber!=user.account.accountNumber}">
+				<td th:text="${ transaction.source.accountNumber}" ></td>
+				</div>
+				<div th:if="${transaction.destination.accountNumber==user.account.accountNumber}">
+				
+				<td th:text="${ transaction.destination.accountNumber}" style="color:red;font-weight: bold;"></td>
+				</div>
+				<div th:if="${transaction.destination.accountNumber!=user.account.accountNumber}">
+				<td th:text="${ transaction.destination.accountNumber}"></td>
+				</div>
+			</tr>
+
+</table>
+</div>
+</div>
+<br><br>
+<div th:unless="${#lists.isEmpty(details)}" class="container">
+<h4 th:text="'Account Holder Name : '+${user.account.name}"></h4>
+<h4 th:text="'Available Balance : '+${user.account.balance}"></h4><br>
+<h4 th:text="'Account Holder Card Number : '+${user.account.card.cardNumber}"></h4>
+<h4 th:text="'Account Holder Card Name : '+${user.account.card.name}"></h4>
+<h4 th:text="'Card Expiry Date : '+${user.account.card.expiryDate}"></h4><br>
+<h4 th:text="'UPI Id : '+${user.account.upi.upiId}"></h4>
+</div>
+
+<div th:if="${msg==1}" class="container">
+<h2>Transaction success</h2>
+</div>
+</body>
+</html>

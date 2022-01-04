@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Admin Page</title>
+</head>
+<body>
+<br><br>
+<h1 style="color:red;">Online Banking System</h1>
+<br><br>
+<nav class="navMenu1">
+<a href="./insertEmployeePage"> Insert Employee</a>
+<a href="./showEmployeePage"> Show Employee </a>
+<a href="./showUserPage"> Show User</a>
+<a href="./logoutAdmin"> Log out</a>
+<div class="dot"></div>
+</nav>
+<br><br><br><br>
+<div th:unless="${#lists.isEmpty(employees)}" class ="container">
+<div th:if="${employees==1}">
+<h3>No Employees</h3>
+</div>
+<div th:if="${employees!=1}" >
+<h3>Employees are</h3><br>
+<table border="1" id ="table1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>password</th>
+			
+		</tr>
+			<tr th:each="employees:${employees}">
+				<td th:text="${employees.id}"></td>
+				<td th:text="${employees.name}"></td>
+				<td th:text="${employees.password}"></td>
+			</tr>
+	</table>
+	</div>
+	</div>
+<div th:unless="${#lists.isEmpty(users)}" class ="container">
+<div th:if="${users==1}">
+<h3>No Users</h3>
+</div>
+<div th:if="${users!=1}">
+<h3>Users are</h3><br>
+<table border="1" id ="table1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>password</th>
+			<th>Account Id</th>
+				
+		</tr>
+			<tr th:each="users:${users}">
+				<td th:text="${users.userId}"></td>
+				<td th:text="${users.name}"></td>
+				<td th:text="${users.password}"></td>
+				<td th:text="${users.account}"></td>
+			</tr>
+	</table>
+	</div>
+	</div>
+</body>
+</html>

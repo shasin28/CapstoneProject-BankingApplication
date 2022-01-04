@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/myStyles.css}" rel="stylesheet" />
+<title>Pay By Card</title>
+</head>
+<body>
+<br><br>
+<h1  style="color:red;">Online Banking System...</h1>
+<br><br>
+<nav class="navMenu1">
+<a href="./getTransactions">Transactions</a>
+<a href="./addBalance">Add Balance</a>
+<a href="./byCard">Pay By Card</a>
+<a href="./byUpi">Pay By UPI</a>
+<a href="./showDetails">Show Details</a>
+<a href ="./logout" >Logout</a>
+<div class="dot"></div>
+</nav>
+<br><br>
+<div class ="container">
+
+<form action="./cardPay" method="post" >
+<input type="hidden" name="cardNumber" th:value="${user.account.card.cardNumber}">
+
+<input type="password" name="cvv" placeholder="Enter cvv"><br><br>
+<a href="./goBack" style="color:black;">Cancel</a>
+<input type="submit" value="Submit">
+</form>
+
+<div th:unless="${#lists.isEmpty(msg)}" class ="container">
+<div th:if="${msg==-1}">
+<h3> Wrong Credentials..Enter correct details!</h3>
+</div>
+</div>
+</div>
+</body>
+</html>
